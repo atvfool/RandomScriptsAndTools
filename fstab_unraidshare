@@ -1,0 +1,16 @@
+# Mount unraid fileshare to unraid vm
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/vda2 during installation
+UUID=5a7ed27f-6b61-43ce-8b61-79af432aec35 /               ext4    errors=remount-ro 0       1
+#UUID=70f4ffdd-cac8-43f8-b4b2-67eca3e319fa /mnt/disk2      ext4 defaults 0 0
+# /boot/efi was on /dev/vda1 during installation
+UUID=7FA9-F23B  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+# Unraid Share
+media		/home/media	9p	trans=virtio,version=9p2000.L,_netdev,rw	0	0

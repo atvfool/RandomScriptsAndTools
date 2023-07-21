@@ -1,0 +1,2 @@
+﻿Get-ChildItem | Rename-Item -NewName {$_.name -replace 'PlankYieldCalculator_10156_JDM20170602', 'SheetCalculator_6091_ARH20190114'} // Replace text in file name
+Get-ChildItem  | ForEach{((Get-Content $_ -Raw) -replace 'PlankYieldCalculator_10156_JDM20170602', 'SheetCalculator_6091_ARH20190114') | Set-Content $_} // Replaces text in a files contents
